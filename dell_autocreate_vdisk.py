@@ -35,14 +35,14 @@ def create_vdisks(arg1):
 
 def fdisks(arg1):
     for i in arg1:
-        command = "fdisk " + i
+        command = "/sbin/fdisk " + i
         print command
         with open('/tmp/fdisk_choices') as f:
             partition_devices = subprocess.Popen(shlex.split(command), stdin=f, stdout=subprocess.PIPE).communicate()[0]
         f.close()
-        command = "fdisk "
+        command = "/sbin/fdisk "
 
-sda_pdisk_id = get_vdisks(command, command2).split()
+sda_pdisk_id = get_pdisks(command, command2).split()
 print sda_pdisk_id
 
 all_pdisk_id = get_pdisks(command3,command2).split()
