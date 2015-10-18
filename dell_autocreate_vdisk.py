@@ -12,7 +12,7 @@ device_column = "awk -F';' '{ if (NR > 5) {print $11} }'"
 def get_omreport_info(arg1, arg2, arg3 = '0'):
     # Get list of physical disk IDs.
     # Reused to get list of virtual disks ID and device names.
-    print "get_omreport_info {0} {1} {2}".format(arg1, arg2, arg3)
+    #print "get_omreport_info {0} {1} {2}".format(arg1, arg2, arg3)
     get_list = subprocess.Popen(shlex.split(arg1.format(arg3)), stdout = subprocess.PIPE)
     get_columns = subprocess.Popen(shlex.split(arg2), stdin = get_list.stdout, stdout = subprocess.PIPE).communicate()[0]
     get_list.stdout.close()
